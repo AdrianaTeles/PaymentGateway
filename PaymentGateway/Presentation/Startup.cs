@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
 using Presentation.Configurations;
+using Data.Repository.DatabaseContext;
 
 namespace WebApplication1
 {
@@ -40,7 +41,8 @@ namespace WebApplication1
                 });
             });
             // Configure DbContext
-            //services.AddDbContext<ProjectsDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("ProjectsConnectionString")));
+            services.AddDbContext<PaymentDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("PaymentConnectionString")));
+            services.AddDbContext<CardDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("PaymentConnectionString")));
 
         }
 

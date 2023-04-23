@@ -1,6 +1,7 @@
 ﻿namespace Presentation.Controllers
 {
     using System;
+    using System.Net;
     using System.Threading.Tasks;
     using Application.DTO;
     using Application.Services.Interfaces;
@@ -47,12 +48,21 @@
         /// </summary>
         /// <returns></returns>
         /// <response code="200">Ok</response>
-        /// <response code="400">Bad request</response>
+        /// <response code="404">Not Found</response>
         [HttpGet()]
         public async Task<IActionResult> ProcessPayment(Guid paymentId)
         {
             var result = await this.paymentService.GetPayment(paymentId).ConfigureAwait(false);
-
+            if (result.HasError)
+            {
+                switch (result.ResponseCode)
+                {
+                    case (int)HttpStatusCode.NotFound:
+                        return NotFound();
+                    default:
+                        return this.Ok(result);
+                }
+            }
             return this.Ok(result);
         }
     }
