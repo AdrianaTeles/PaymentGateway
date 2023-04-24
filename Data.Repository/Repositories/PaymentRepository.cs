@@ -1,8 +1,5 @@
 ﻿namespace Data.Repository.Repositories
 {
-    using System;
-    using System.Threading.Tasks;
-    using Application.DTO;
     using Data.Repository.DatabaseContext;
     using Data.Repository.Interfaces;
     using Domain.Model;
