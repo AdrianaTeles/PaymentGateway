@@ -9,7 +9,7 @@ namespace Application.DTO
     public  class CardInformation
     {
         [Required]
-        [StringLength(10)]
+        [StringLength(16)]
         public string CardNumber { get; set; }
 
         public DateTime ExpiryDate { get; set; }
@@ -20,7 +20,7 @@ namespace Application.DTO
 
         public string MaskCardNumber()
         {           
-            var firstDigits = this.CardNumber.Substring(0, 6);
+            var firstDigits = this.CardNumber.Substring(0, 2);
             var lastDigits = this.CardNumber.Substring(this.CardNumber.Length - 4, 4);
 
             var requiredMask = new String('X', this.CardNumber.Length - firstDigits.Length - lastDigits.Length);

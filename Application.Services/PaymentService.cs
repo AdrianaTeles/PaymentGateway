@@ -37,7 +37,6 @@
                 CardInformation = new DTO.CardInformation
                 {
                     CardNumber = cardPayment.FirstOrDefault().CardNumber,
-                    CVV = cardPayment.FirstOrDefault().CVV,
                     ExpiryDate = cardPayment.FirstOrDefault().ExpiryDate
                 },
                 Status = Status.Success
@@ -55,7 +54,7 @@
                 CardInformation = new Domain.Model.CardInformation()
                 {
                     CardId = Guid.NewGuid(),
-                    CardNumber = request.CardInformation.CardNumber,
+                    CardNumber = request.CardInformation.MaskCardNumber(),
                     CVV = request.CardInformation.CVV,
                     ExpiryDate = request.CardInformation.ExpiryDate
                 }

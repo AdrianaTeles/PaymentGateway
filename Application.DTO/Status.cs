@@ -6,7 +6,7 @@ namespace Application.DTO
 {
     public enum Status
     {
-        Success = 0,
-        Error = 1
+        Success,
+        Error
     }
 }
