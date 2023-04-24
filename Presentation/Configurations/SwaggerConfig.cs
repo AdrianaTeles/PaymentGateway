@@ -65,7 +65,7 @@ namespace Presentation.Configurations
     
     private static string GetXmlCommentsPath()
         {
-            return string.Format(@"{0}\PaymentGateway.xml", AppDomain.CurrentDomain.BaseDirectory);
+            return string.Format(@"{0}\ProjectManagement.xml", AppDomain.CurrentDomain.BaseDirectory);
         }
     }
 }

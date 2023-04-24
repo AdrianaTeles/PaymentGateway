@@ -41,7 +41,8 @@ namespace WebApplication1
                 });
             });
             // Configure DbContext
-            services.AddDbContext<PaymentDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("PaymentConnectionString")));
+            var connection = Configuration.GetConnectionString("PaymentConnectionString");
+            services.AddDbContext<PaymentDbContext>(options => options.UseNpgsql(connection));
             services.AddDbContext<CardDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("PaymentConnectionString")));
 
         }
