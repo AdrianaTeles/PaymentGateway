@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -7,8 +8,14 @@ namespace Application.DTO
 {
     public  class CardInformation
     {
+        [Required]
+        [StringLength(10)]
         public string CardNumber { get; set; }
+
         public DateTime ExpiryDate { get; set; }
+
+        [Required]
+        [Range(0, 999)]
         public int CVV { get; set; }
 
         public string MaskCardNumber()

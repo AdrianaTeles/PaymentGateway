@@ -60,6 +60,7 @@
                     ExpiryDate = request.CardInformation.ExpiryDate
                 }
             };
+
             payment.CardId = payment.CardInformation.CardId;
             var CKOResponse = this.CKOBankGateway.SubmitPayment(request);
 
