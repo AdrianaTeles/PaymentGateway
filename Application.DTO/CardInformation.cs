@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-using System.Text.RegularExpressions;
-
-namespace Application.DTO
+﻿namespace Application.DTO
 {
-    public  class CardInformation
+    using System;
+    using System.ComponentModel.DataAnnotations;
+    using System.Text.RegularExpressions;
+
+    public class CardInformation
     {
         [Required]
         [StringLength(16)]
@@ -19,7 +17,7 @@ namespace Application.DTO
         public int CVV { get; set; }
 
         public string MaskCardNumber()
-        {           
+        {
             var firstDigits = this.CardNumber.Substring(0, 2);
             var lastDigits = this.CardNumber.Substring(this.CardNumber.Length - 4, 4);
 
